@@ -2,4 +2,5 @@ bot/config.py
 bot/.env
 bot/key.py
 last_seen.txt
-bot/__pycache__/*
+bot/__pycache__/
+*.py[cod]
