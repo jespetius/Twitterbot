@@ -3,6 +3,8 @@ import os
 import time
 from dotenv import load_dotenv
 load_dotenv()
+import pyowm
+from weather import fetchWeather
 
 # Tunnistusobjektin luominen
 auth = tweepy.OAuthHandler(os.getenv('twitter_consumer_key'),
@@ -14,8 +16,8 @@ auth.set_access_token(os.getenv('twitter_access_token'),
 api = tweepy.API(auth)
 FILE_NAME = 'last_seen.txt'
 
-#lähetä yksi tweetti
-#api.update_status('Camoon #opetuslapaset')
+#lähettää sää tiedotteen
+#api.update_status(fetchWeather())
 
 
 
@@ -33,7 +35,7 @@ def store_last_seen(FILE_NAME, last_seen_id):
     file_write.close()
     return
     
-#etsi tweetit jossa on mainittu api, eli twitterkäyttäjä ja vastaa
+#etsi tweetit jossa on mainittu api, eli twitterkäyttäjä ja vastaa, tykkää ja retweet
 def reply():
     tweets = api.mentions_timeline(read_last_seen(FILE_NAME), tweet_mode='extended')
     for tweet in reversed(tweets):
@@ -43,7 +45,7 @@ def reply():
             api.create_favorite(tweet.id)
             api.retweet(tweet.id)
             store_last_seen(FILE_NAME, tweet.id)
-
+#pitää elossa
 while True:
     reply()
     time.sleep(2)

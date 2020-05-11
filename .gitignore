@@ -1,2 +1,3 @@
 bot/config.py
 bot/.env
+bot/key.py
