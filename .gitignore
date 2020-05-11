@@ -1,3 +1,5 @@
 bot/config.py
 bot/.env
 bot/key.py
+last_seen.txt
+bot/__pycache__

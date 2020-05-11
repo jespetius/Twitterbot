@@ -41,11 +41,11 @@ def reply():
     for tweet in reversed(tweets):
         if "#opetuslapaset" in tweet.full_text.lower():
             print(str(tweet.id)+ ' - ' + tweet.full_text) 
-            api.update_status("@" + tweet.user.screen_name + " Botti vastaa, tykkää ja retweettaa :)", tweet.id)
+            api.update_status("@" + tweet.user.screen_name + ' ' + fetchWeather(), tweet.id)
             api.create_favorite(tweet.id)
             api.retweet(tweet.id)
             store_last_seen(FILE_NAME, tweet.id)
 #pitää elossa
 while True:
     reply()
-    time.sleep(2)
+    time.sleep(69)
