@@ -12,3 +12,5 @@ Jotta twitterin API:a voi hyödyntää, tarvitsee sinne avaimet. Ne on kätevä 
 Toteutus
 
 käyttäen pythonin tweepy-kirjastoa. Sen dokumentaatio löytyy täältä. http://docs.tweepy.org/en/latest/
+
+käytössä openweathermap josta haetaan säätietoja. 
