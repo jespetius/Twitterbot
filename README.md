@@ -1,7 +1,4 @@
-<p align="center">
-  <a href="https://twitter.com/JespetiusB">
-    <img src="images/jb.jpg" alt="jb" width="280" height="180">
-  </a>
+![images](jb.png)
 
 
 
