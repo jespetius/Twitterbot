@@ -1,3 +1,7 @@
+![images](jb.png)
+
+
+
 ## Twitterbot
 Tämä on lopputyö kurssille Ohjelmistokehityksen teknologioita SWD4TN023-3006
 Tarkoituksena olisi tehdä botti twitteriin käyttäen pythonia.
