@@ -6,6 +6,13 @@ Botin olisi tarkoitus vastata käyttäjän antamaan kaupunkiin sen säätiedolla
 Botti on tarkoitus laittaa omalle palvelimelle toimimaan.
 
 
+Botin käyttäminen on seuraavanlaista:
+
+- joka tunti laittaa säätiedotteen Helsingistä
+
+- joka minuutti tarkistaa, onko laitettu tweettiä botille ja tarvitaanko säätietoja. 
+ 
+
 ## Twitter ja OpenWeatheMap keys
 
 Jotta twitterin API:a voi hyödyntää, tarvitsee sinne avaimet. Ne on kätevä hakea https://developer.twitter.com/en.
@@ -45,13 +52,13 @@ käytössä myös openweathermap josta haetaan säätietoja. Apuna käytin PyOWM
 ```
 ## Käyttö 
 
-Botin voi laittaa omalle palvelimelle pyörimään. Botin käyttäminen on seuraavanlaista:
-
-- joka tunti laittaa säätiedotteen Helsingistä
-
--joka minuutti tarkistaa, onko laitettu tweettiä botille ja tarvitaanko säätietoja. 
-
-tärkeintä on laittaa omat avaimet. Ilmaisella versiolla liian tiheä päivitystahti ei onnistu, koksa twitter on rajoittanut hakujen määrää. 
+Laita ensiksi koodi pyörimään komennolla:
+``` sh
+python bot.py
+```
+Twitterissä laita tweetti : @JespetiusB <Kaupunki>
+    
+ Tähän kuva
 
 ## Miksi valitsin aiheen
 
