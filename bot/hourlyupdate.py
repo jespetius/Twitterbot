@@ -4,10 +4,8 @@ import time
 from dotenv import load_dotenv
 load_dotenv()
 import requests, json
-import pyowm
-import time
 from key import *
-
+import pyowm
 # Tunnistusobjektin luominen
 auth = tweepy.OAuthHandler(os.getenv('twitter_consumer_key'),
                        os.getenv('twitter_consumer_secret'))
@@ -16,8 +14,6 @@ auth.set_access_token(os.getenv('twitter_access_token'),
                       os.getenv('twitter_access_token_secret'))
 # API-objektin luominen ja auth informaation puskeminen
 api = tweepy.API(auth)
-FILE_NAME = 'last_seen.txt'
-
 
 def fetchWeather():
 
@@ -25,7 +21,7 @@ def fetchWeather():
 
     owm = pyowm.OWM(key)
 
-    #observation = owm.weather_at_zip_code('00740', 'FI')
+    
     observation = owm.weather_at_place('Helsinki')
     weather = observation.get_weather()
 
@@ -37,10 +33,15 @@ def fetchWeather():
 
     status = weather.get_detailed_status()
 
-    answer = 'Helsinki \n '  + str(status) + '\n temperature ' +  str(temperature) +degree_sign + '\n windspeed ' + str(wind) + '\n humidity '+ str(humidity)
+    answer = 'At the moment Helsinki  \n '  + str(status) + '\n temperature ' +  str(temperature) +degree_sign + 'C\n wind ' + str(wind) + ' m/s\n humidity '+ str(humidity)+' %'
     output = str(answer)
-    #api.update_status('testi')
+    
     return output
 
 print(fetchWeather())
 
+def hourlyUpdate():
+    api.update_status(fetchWeather())
+while True:
+    hourlyUpdate()
+    time.sleep(3600)
