@@ -45,7 +45,7 @@ def reply1():
     for tweet in reversed(tweets):
         print(str(tweet.id)+ ' - ' + tweet.full_text) 
         s = tweet.full_text
-        weatherCity = s.replace('@jespetiusB ', '')
+        weatherCity = s.replace('@JespetiusB ', '')
         print(weatherCity)
         return str(weatherCity)
         
@@ -55,12 +55,13 @@ def fetchWeather():
     degree_sign = u'\N{DEGREE SIGN}'
     city = reply1()
     city1 = str(city)
-    print(city)
+    city2 = city1.replace('@JespetiusB ', '')
+    print(city2)
     owm = pyowm.OWM(key)
-    url='http://api.openweathermap.org/data/2.5/weather?q='+city1+'&appid=' + key
+    url='http://api.openweathermap.org/data/2.5/weather?q='+city2+'&appid=' + key
 
     r =requests.get(url)
-
+    time.sleep(5)
     x = r.json()
 
     if x["cod"]== "404":
@@ -103,6 +104,7 @@ def reply2():
         
         #päivittää, tykkää, jakaa
         api.update_status("@" + tweet.user.screen_name + ' ' + fetchWeather(), tweet.id)
+        
         api.create_favorite(tweet.id)
         api.retweet(tweet.id)
         
