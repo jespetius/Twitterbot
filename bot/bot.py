@@ -44,8 +44,8 @@ def reply1():
     tweets = api.mentions_timeline(read_last_seen(FILE_NAME), tweet_mode='extended')
     for tweet in reversed(tweets):
         print(str(tweet.id)+ ' - ' + tweet.full_text) 
-        s = tweet.full_text
-        weatherCity = s.replace('@JespetiusB ', '')
+        s = tweet.full_text.lower()
+        weatherCity = s.replace('@jespetiusb ', '')
         print(weatherCity)
         return str(weatherCity)
         
@@ -55,8 +55,8 @@ def fetchWeather():
     degree_sign = u'\N{DEGREE SIGN}'
     city = reply1()
     city1 = str(city)
-    city2 = city1.replace('@JespetiusB ', '')
-    print(city2)
+    city2 = city1.replace('@jespetiusb ', '')
+    
     owm = pyowm.OWM(key)
     url='http://api.openweathermap.org/data/2.5/weather?q='+city2+'&appid=' + key
 
