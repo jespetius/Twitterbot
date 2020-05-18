@@ -1,3 +1,10 @@
+<p align="center">
+  <a href="https://twitter.com/JespetiusB">
+    <img src="images/jb.jpg" alt="jb" width="280" height="180">
+  </a>
+
+
+
 ## Twitterbot
 Tämä on lopputyö kurssille Ohjelmistokehityksen teknologioita SWD4TN023-3006
 Tarkoituksena olisi tehdä botti twitteriin käyttäen pythonia.
