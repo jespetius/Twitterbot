@@ -60,9 +60,9 @@ Laita ensiksi koodi pyörimään komennolla:
 ``` sh
 python bot.py
 ```
-Twitterissä laita tweetti : @JespetiusB <Kaupunki>
+Twitterissä laita tweetti : @JespetiusB Kaupunki
     
- Tähän kuva
+
 
 ## Miksi valitsin aiheen
 
